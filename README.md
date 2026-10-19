@@ -56,54 +56,53 @@ The classical ANN width is auto-matched to InLoQ's parameter count in `scripts/r
 
 ---
 
+
 ## Layout
 
-
+```
 InLoq/
 ├── requirements.txt
-├── environment.yml # conda env (portable)
-├── environment_full.yml # frozen conda env (exact)
-├── building13.png # floor plan used in spatial plots
+├── environment.yml                    # conda env (portable)
+├── environment_full.yml               # frozen conda env (exact)
+├── building13.png                     # floor plan used in spatial plots
 ├── LICENSE
 ├── README.md
-├── data/ # raw CSVs (tracked)
-│ ├── Inloq_redmi_fuldata.csv # main dataset
-│ └── *.csv # additional walks/heights
-├── scripts/ # CLI entry points
-│ ├── run_experiments.py # train all models × features × seeds
-│ ├── run_experiments_with_config_file.py # same, driven by src/config.py
-│ ├── reproduce_figures.py # regenerate all paper figures
-│ ├── reproduce_tables.py # regenerate all LaTeX tables
-│ ├── analyze_parameters.py # parameter-count comparison
-│ ├── generate_circuit_diagrams.py # quantum circuit diagrams
-│ └── analyze_gradient_variance.py # barren-plateau analysis
-├── src/ # library code — no CLI, just importable
-│ ├── config.py # paths, hyperparameters, model flags
-│ ├── data_loader.py # load/clean/split + sequence prep
-│ ├── models.py # InLoQ, ANN, LSTM, GRU, BiLSTM
-│ ├── quantum_varied.py # variable-depth quantum layer (ablation)
-│ ├── training.py # multi-run training loop
-│ ├── evaluation.py # metric aggregation
-│ ├── parameter_counter.py # analytical parameter counts
-│ ├── plots.py # all figure-generation functions
-│ ├── tables.py # all table-generation functions
-│ ├── circuits_visualization.py # circuit diagram rendering
-│ └── utils.py # seeds, system info, constants
-├── results_InLoQ/ # created automatically (gitignored)
-│ ├── Inloq/{aggregated,runs}/
-│ ├── Classical_ANN/{aggregated,runs}/
-│ ├── LSTM/{aggregated,runs}/
-│ ├── GRU/{aggregated,runs}/
-│ └── BiLSTM/{aggregated,runs}/
-└── paper/ # created automatically (gitignored)
-├── Plots/
-│ ├── Circuit_Diagrams/
-│ ├── Parameter_Analysis/
-│ └── <model comparison plots>/
-└── Tables/
-
-
----
+├── data/                              # raw CSVs (tracked)
+│   ├── Inloq_redmi_fuldata.csv        # main dataset
+│   └── *.csv                          # additional walks/heights
+├── scripts/                           # CLI entry points
+│   ├── run_experiments.py             #   train all models × features × seeds
+│   ├── run_experiments_with_config_file.py  #   same, driven by src/config.py
+│   ├── reproduce_figures.py           #   regenerate all paper figures
+│   ├── reproduce_tables.py            #   regenerate all LaTeX tables
+│   ├── analyze_parameters.py          #   parameter-count comparison
+│   ├── generate_circuit_diagrams.py   #   quantum circuit diagrams
+│   └── analyze_gradient_variance.py   #   barren-plateau analysis
+├── src/                               # library code — no CLI, just importable
+│   ├── config.py                      #   paths, hyperparameters, model flags
+│   ├── data_loader.py                 #   load/clean/split + sequence prep
+│   ├── models.py                      #   InLoQ, ANN, LSTM, GRU, BiLSTM
+│   ├── quantum_varied.py              #   variable-depth quantum layer (ablation)
+│   ├── training.py                    #   multi-run training loop
+│   ├── evaluation.py                  #   metric aggregation
+│   ├── parameter_counter.py           #   analytical parameter counts
+│   ├── plots.py                       #   all figure-generation functions
+│   ├── tables.py                      #   all table-generation functions
+│   ├── circuits_visualization.py      #   circuit diagram rendering
+│   └── utils.py                       #   seeds, system info, constants
+├── results_InLoQ/                     # created automatically (gitignored)
+│   ├── Inloq/{aggregated,runs}/
+│   ├── Classical_ANN/{aggregated,runs}/
+│   ├── LSTM/{aggregated,runs}/
+│   ├── GRU/{aggregated,runs}/
+│   └── BiLSTM/{aggregated,runs}/
+└── paper/                             # created automatically (gitignored)
+    ├── Plots/
+    │   ├── Circuit_Diagrams/
+    │   ├── Parameter_Analysis/
+    │   └── <model comparison plots>/
+    └── Tables/
+```
 
 
 ---
@@ -167,19 +166,26 @@ Expected: ~42,553 rows, columns ['time','Bx','By','Bz','BT','x_coord','y_coord',
 
 # Smoke test — train a single model
 python scripts/run_experiments.py --models Inloq --seeds 320 --epochs 5
+```
 
-Reproducibility notes
-    # Every run seeds Python, NumPy, TF, and PYTHONHASHSEED via set_global_seeds().
-    # Each layer's initializer receives a unique seed offset (seed, seed+1, seed+2, ...).
-    # Data splits use random_state = seed, so train/valid/test is identical across models for the same seed.
-    # Report mean ± std across seeds (10 runs for the paper).
-    # All tables export to .tex in paper/Tables/.
-    # paper/Plots/ is fully regenerable from results_InLoQ/ — no manual editing required.
+---
 
+## Reproducibility notes
 
-Citation
+- Every run seeds Python, NumPy, TF, and `PYTHONHASHSEED` via `set_global_seeds()`.
+- Each layer's initializer receives a unique seed offset (`seed, seed+1, seed+2, ...`).
+- Data splits use `random_state = seed`, so train/valid/test is identical across models for the same seed.
+- Report mean ± std across seeds (10 runs for the paper).
+- All tables export to `.tex` in `paper/Tables/`.
+- `paper/Plots/` is fully regenerable from `results_InLoQ/` — no manual editing required.
+
+---
+
+## Citation
+
 If you use this code or the dataset, please cite:
 
+```bibtex
 @article{rafique2026inloq,
   title={InLoq: A hybrid quantum neural network for indoor localization using magnetic field signals},
   author={Rafique, Hamaad and Russo, Enrico and La Delfa, Gaetano Carmelo and Palesi, Maurizio and Torres-Sospedra, Joaqu{\'\i}n},
@@ -189,6 +195,10 @@ If you use this code or the dataset, please cite:
   year={2026},
   publisher={Elsevier}
 }
+```
 
-License
-Released under the MIT License — see LICENSE. The dataset is provided for academic research only; contact the authors for commercial use.
+---
+
+## License
+
+Released under the **MIT License** — see [LICENSE](LICENSE). The dataset is provided for academic research only; contact the authors for commercial use.
