@@ -1,0 +1,13 @@
+{
+  "model_type": "Inloq",
+  "n_runs": 2,
+  "epochs": 5,
+  "batch_size": 16,
+  "base_seed": 320,
+  "input_dim": 9,
+  "feature_sets": [
+    "BT only",
+    "Bx, By, Bz",
+    "Bz, Bxy, BT"
+  ]
+}

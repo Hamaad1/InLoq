@@ -1,0 +1,27 @@
+\begin{table}[htbp]
+\centering
+\caption{Localisation accuracy comparison (mean $\pm$ std over 2 runs). \textbf{Bold} indicates best performance per feature set.}
+\label{tab:comparison}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llcccc}
+\toprule
+Model & Feature Set & MAE (m) & RMSE (m) & Euclidean (m) & Train (s) \\
+\midrule
+Inloq & BT only & \textbf{5.3601$\pm$0.0730} & \textbf{8.1769$\pm$0.0364} & \textbf{9.9327$\pm$0.1184} & 69.7 \\
+Inloq & Bx, By, Bz & \textbf{2.0527$\pm$0.1220} & \textbf{3.1478$\pm$0.0704} & \textbf{3.6879$\pm$0.1686} & 87.4 \\
+Inloq & Bz, Bxy, BT & \textbf{2.1116$\pm$0.1530} & \textbf{3.4887$\pm$0.3163} & \textbf{3.8087$\pm$0.3312} & 91.1 \\
+Classical ANN & BT only & 5.6112$\pm$0.0297 & 8.5902$\pm$0.0373 & 10.4942$\pm$0.0231 & 22.6 \\
+Classical ANN & Bx, By, Bz & 2.5595$\pm$0.0639 & 4.2501$\pm$0.1211 & 4.8296$\pm$0.1516 & 22.7 \\
+Classical ANN & Bz, Bxy, BT & 2.4409$\pm$0.2819 & 3.9586$\pm$0.5553 & 4.4925$\pm$0.5269 & 22.6 \\
+LSTM & BT only & 5.7398$\pm$0.0386 & 8.7855$\pm$0.0204 & 10.7155$\pm$0.0537 & 34.2 \\
+LSTM & Bx, By, Bz & 2.9779$\pm$0.0309 & 4.6873$\pm$0.0840 & 5.5324$\pm$0.0372 & 35.2 \\
+LSTM & Bz, Bxy, BT & 4.9765$\pm$0.2014 & 7.6803$\pm$0.2800 & 9.4278$\pm$0.3859 & 34.8 \\
+GRU & BT only & 5.5818$\pm$0.0541 & 8.4689$\pm$0.0686 & 10.3808$\pm$0.0932 & 34.1 \\
+GRU & Bx, By, Bz & 2.4665$\pm$0.0069 & 4.0218$\pm$0.0059 & 4.6298$\pm$0.0230 & 34.8 \\
+GRU & Bz, Bxy, BT & 2.4723$\pm$0.1184 & 4.0396$\pm$0.1368 & 4.5384$\pm$0.2021 & 34.8 \\
+BiLSTM & BT only & 5.6147$\pm$0.0547 & 8.6378$\pm$0.0372 & 10.5256$\pm$0.0697 & 45.3 \\
+BiLSTM & Bx, By, Bz & 2.5376$\pm$0.0958 & 4.1777$\pm$0.1264 & 4.6316$\pm$0.1458 & 45.6 \\
+BiLSTM & Bz, Bxy, BT & 2.2627$\pm$0.0568 & 3.7848$\pm$0.0521 & 4.1888$\pm$0.0756 & 45.6 \\
+\bottomrule
+\end{tabular}}
+\end{table}

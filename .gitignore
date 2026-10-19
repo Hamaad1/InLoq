@@ -1,4 +1,19 @@
+# Ignore everything by default
 *
-!data/
-!data/**
+
+# Allow .gitignore
 !.gitignore
+
+# Allow all directories (needed to traverse)
+!*/
+
+# Allow all files (this re-includes everything)
+!*
+
+# Re-ignore specific items
+__pycache__/
+*.pyc
+*.pyo
+/data/
+/tests/
+/how_to_push.txt

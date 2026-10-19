@@ -1,0 +1,10 @@
+name: inloq
+channels:
+  - defaults
+dependencies:
+  - python=3.9.18
+  - cuda-nvcc
+  - cuda-toolkit
+  - cudnn
+  - ipykernel
+prefix: /miniconda3/envs/inloq

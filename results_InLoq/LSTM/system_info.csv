@@ -1,0 +1,2 @@
+Python version,Platform,Processor,TensorFlow version,GPU name,Driver,Memory total (MB),Memory used (MB),Memory free (MB),GPU load (%),GPU temperature (C)
+3.9.18,Linux-6.5.0-44-generic-x86_64-with-glibc2.38,x86_64,2.15.1,NVIDIA RTX 6000 Ada Generation,550.120,49140.0,47130.0,1511.0,4.0,67.0

@@ -1,0 +1,25 @@
+Input Dimension,Model,Parameters
+1,InLoq (Proposed),218
+1,Classical ANN,227
+1,LSTM,1306
+1,GRU,1066
+1,BiLSTM,794
+1,InLoq (quantum only),12
+2,InLoq (Proposed),220
+2,Classical ANN,245
+2,LSTM,1370
+2,GRU,1114
+2,BiLSTM,858
+2,InLoq (quantum only),12
+3,InLoq (Proposed),248
+3,Classical ANN,263
+3,LSTM,1434
+3,GRU,1162
+3,BiLSTM,922
+3,InLoq (quantum only),18
+4,InLoq (Proposed),278
+4,Classical ANN,281
+4,LSTM,1498
+4,GRU,1210
+4,BiLSTM,986
+4,InLoq (quantum only),24
